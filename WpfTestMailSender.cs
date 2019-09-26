@@ -37,6 +37,8 @@ namespace MailSender
                 smtpClient.EnableSsl = true;
                 smtpClient.Send(mailMessage);
 
+                MessageBox.Show("Письмо отрпавленно");
+
             }
             catch (Exception e)
             {
