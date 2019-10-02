@@ -25,9 +25,10 @@ namespace MailSender
             InitializeComponent();
         }
 
-        private void BtnSend_Click(object sender, RoutedEventArgs e)
+        private void ExitMenuItem(object sender, RoutedEventArgs e)
         {
-            WpfTestMailSender.SendMail(txtTheme.Text.Trim(), txtTextMail.Text.Trim(), txtLogin.Text.Trim(),txtPassword.Text.Trim());
+
+            Application.Current.Shutdown();
         }
     }
 }

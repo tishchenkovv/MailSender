@@ -67,8 +67,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WpfTestMailSender.cs" />
-    <Compile Include="EmailSendServiceClass.cs" />
     <Compile Include="WPFMailSender.xaml.cs">
       <DependentUpon>WPFMailSender.xaml</DependentUpon>
       <SubType>Code</SubType>

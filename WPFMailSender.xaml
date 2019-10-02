@@ -5,36 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="Mail Sendler" Height="450" Width="800" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Mail Sendler" 
+        Height="450" 
+        Width="800" 
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="ToolWindow">
 
-    <TabControl>
-        <TabItem Header="Почта" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="90">
-
-                    </RowDefinition>
-                    <RowDefinition Height="300"></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBox HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" TextWrapping="Wrap" Text="Theme"  VerticalAlignment="Top" Width="228" Grid.Row="0" x:Name="txtTheme"/>
-                <Button Content="Отправить" Height="25" Margin="255,10,438,55" Width="100" x:Name="btnSend" Click="BtnSend_Click" />
-                <Label Content="Текст письма" x:Name="Title" Grid.Row="1" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="#FFBD1C1C"></Label>
-                <TextBox Grid.Row="1" Background="#FF878080" TextWrapping="Wrap" AcceptsReturn="True" x:Name="txtTextMail" Height="270" VerticalAlignment="Stretch"/>
-            </Grid>
-        </TabItem>
-        <TabItem Header="Настройки почты"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" >
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>    
-            <Label x:Name="lblSmtpServer" VerticalAlignment="Top" Content="server" HorizontalAlignment="Left" Grid.Row="0" Margin="5,8,0,0" Height="25"/>
-            <TextBox x:Name="txtSmtpServer" VerticalAlignment="Top" Width="200" Text="smtp server" HorizontalAlignment="Left" Grid.Row="0" Margin="60,5,0,0" Height="25"/>
-             <Label Content="login" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,38,0,0"></Label>
-             <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="25" Margin="60,35,0,0" TextWrapping="Wrap" Text="login" VerticalAlignment="Top" Width="200"/>
-             <Label x:Name="lblPassword" Content="password" Margin="5,67,0,300" HorizontalAlignment="Left" ></Label>
-             <TextBox x:Name="txtPassword" Height="25" Width="200" HorizontalAlignment="Left" Margin="60,65,0,300" Text="password"></TextBox>
-            </Grid>
-        </TabItem>
-    </TabControl>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать"/>
+                <MenuItem Header="Открыть"/>
+                <MenuItem Header="Сохранить"/>
+                <Separator/>
+                <MenuItem Header="Выход" Click="ExitMenuItem"/>
+            </MenuItem>
+            <MenuItem Header="Сервис"/>
+            <MenuItem Header="Помощь"/>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem DockPanel.Dock="Right">
+                <TextBlock Text="Готов к работе"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem DockPanel.Dock="Left">
+                <ProgressBar Value="30" Height="15" Width="40"/>
+            </StatusBarItem>
+        </StatusBar>
+            <TabControl>
+                <TabItem Header="Рассылка">
+                <Grid>
+                    
+                </Grid>
+                </TabItem>
+                <TabItem Header="Планировщик"></TabItem>
+                <TabItem Header="Письма"></TabItem>
+            </TabControl>
+    </DockPanel>
 
 </Window>
