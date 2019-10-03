@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="Mail Sendler" 
@@ -35,7 +36,50 @@
             <TabControl>
                 <TabItem Header="Рассылка">
                 <Grid>
-                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ToolBarTray Grid.Row="0">
+                        <ToolBar>
+                            <Label Content="Отправители" MinWidth="85"/>
+                            <ComboBox MinWidth="75" MaxWidth="150">
+                                <ComboBoxItem>Отправитель_1</ComboBoxItem>
+                                <ComboBoxItem>Отправитель_2</ComboBoxItem>
+                                <ComboBoxItem>Отправитель_3</ComboBoxItem>
+                            </ComboBox>
+                            <Button ToolTip="Создать">
+                                <fa:ImageAwesome Height="15" Icon="Plus"/>
+                            </Button>
+                            <Button ToolTip="Редактировать">
+                                <fa:ImageAwesome Height="15" Icon="Edit"/>
+                            </Button>
+                            <Button ToolTip="Удалить">
+                                <fa:ImageAwesome Height="15" Icon="Trash"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1">
+                            <Label MinWidth="85">Сервера</Label>
+                            <ComboBox MinWidth="75" MaxWidth="150">
+                                <ComboBoxItem Content="Сервер_1"/>
+                                <ComboBoxItem Content="Сервер_2"/>
+                                <ComboBoxItem Content="Сервер_3"/>
+                            </ComboBox>
+                            <Button ToolTip="Создать"/>
+                            <Button ToolTip="Редактировать"/>
+                            <Button ToolTip="Удалить"/>
+                        </ToolBar>
+                        <ToolBar>
+                            <Label Content="Перейти в планировщик"></Label>
+                            <Button ToolTip="Перейти"/>
+                        </ToolBar>
+                        <ToolBar Band="1">
+                            <Label>Получатели</Label>
+                            <Button ToolTip="Создать"/>
+                            <Button ToolTip="Редактировать"/>
+                            <Button ToolTip="Удалить"/>
+                        </ToolBar>
+                    </ToolBarTray>
                 </Grid>
                 </TabItem>
                 <TabItem Header="Планировщик"></TabItem>
