@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MailSender"
+        xmlns:data="clr-namespace:MailSender.lib.DATA;assembly=MailSender.lib"
         mc:Ignorable="d"
         Title="Mail Sendler" 
         Height="450" 
@@ -43,19 +44,15 @@
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
                             <Label Content="Отправители" MinWidth="85"/>
-                            <ComboBox MinWidth="75" MaxWidth="150">
-                                <ComboBoxItem>Отправитель_1</ComboBoxItem>
-                                <ComboBoxItem>Отправитель_2</ComboBoxItem>
-                                <ComboBoxItem>Отправитель_3</ComboBoxItem>
-                            </ComboBox>
+                            <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Name"/>
                             <Button ToolTip="Создать">
-                                <fa:ImageAwesome Height="15" Icon="Plus"/>
+                                <fa:ImageAwesome Height="15" Icon="Plus" Foreground="Green"/>
                             </Button>
                             <Button ToolTip="Редактировать">
-                                <fa:ImageAwesome Height="15" Icon="Edit"/>
+                                <fa:ImageAwesome Height="15" Icon="Edit" Foreground="Blue"/>
                             </Button>
                             <Button ToolTip="Удалить">
-                                <fa:ImageAwesome Height="15" Icon="Trash"/>
+                                <fa:ImageAwesome Height="15" Icon="Trash" Foreground="Red"/>
                             </Button>
                         </ToolBar>
                         <ToolBar Band="1">
@@ -65,21 +62,42 @@
                                 <ComboBoxItem Content="Сервер_2"/>
                                 <ComboBoxItem Content="Сервер_3"/>
                             </ComboBox>
-                            <Button ToolTip="Создать"/>
-                            <Button ToolTip="Редактировать"/>
-                            <Button ToolTip="Удалить"/>
+                            <Button ToolTip="Создать">
+                                <fa:ImageAwesome Icon="Plus" Height="15" Foreground="Green"/>
+                            </Button>
+                            <Button ToolTip="Редактировать">
+                                <fa:ImageAwesome Icon="Edit" Height="15" Foreground="Blue"/>
+                            </Button>
+                            <Button ToolTip="Удалить">
+                                <fa:ImageAwesome Icon="Trash" Height="15" Foreground="Red"/>
+                            </Button>
                         </ToolBar>
                         <ToolBar>
                             <Label Content="Перейти в планировщик"></Label>
-                            <Button ToolTip="Перейти"/>
+                            <Button ToolTip="Перейти">
+                                <fa:ImageAwesome Icon="ClockOutline" Height="15" Foreground="LightCyan"/>
+                            </Button>
                         </ToolBar>
                         <ToolBar Band="1">
                             <Label>Получатели</Label>
-                            <Button ToolTip="Создать"/>
-                            <Button ToolTip="Редактировать"/>
-                            <Button ToolTip="Удалить"/>
+                            <Button ToolTip="Создать">
+                                <fa:ImageAwesome Icon="Plus" Height="15" Foreground="Green"/>
+                            </Button>
+                            <Button ToolTip="Редактировать">
+                                <fa:ImageAwesome Icon="Edit" Height="15" Foreground="Blue"/>
+                            </Button>
+                            <Button ToolTip="Удалить">
+                                <fa:ImageAwesome Icon="Trash" Height="15" Foreground="Red"/>
+                            </Button>
                         </ToolBar>
                     </ToolBarTray>
+                    <DataGrid Grid.Row="1" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="id"/>
+                            <DataGridTextColumn Header="Имя"/>
+                            <DataGridTextColumn Header="Адрес" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
                 </TabItem>
                 <TabItem Header="Планировщик"></TabItem>
