@@ -6,6 +6,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MailSender"
         xmlns:data="clr-namespace:MailSender.lib.DATA;assembly=MailSender.lib"
+     xmlns:entity="clr-namespace:MailSender.lib.Entity;assembly=MailSender.lib"
         mc:Ignorable="d"
         Title="Mail Sendler" 
         Height="450" 
@@ -44,7 +45,7 @@
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
                             <Label Content="Отправители" MinWidth="85"/>
-                            <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Name"/>
+                            <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Senders}" DisplayMemberPath="Name" SelectedIndex="0"/>
                             <Button ToolTip="Создать">
                                 <fa:ImageAwesome Height="15" Icon="Plus" Foreground="Green"/>
                             </Button>
@@ -57,10 +58,15 @@
                         </ToolBar>
                         <ToolBar Band="1">
                             <Label MinWidth="85">Сервера</Label>
-                            <ComboBox MinWidth="75" MaxWidth="150">
-                                <ComboBoxItem Content="Сервер_1"/>
-                                <ComboBoxItem Content="Сервер_2"/>
-                                <ComboBoxItem Content="Сервер_3"/>
+                            <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Servers}" SelectedIndex="0">
+                                <ComboBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type entity:Server}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}"/>
+                                         <TextBlock Text="{Binding Address}" Margin="3,0,0,0" Opacity="0.6" ToolTip="{Binding Port,StringFormat=:{0}}"/>
+                                        </StackPanel>
+                                </DataTemplate>
+                                </ComboBox.ItemTemplate>
                             </ComboBox>
                             <Button ToolTip="Создать">
                                 <fa:ImageAwesome Icon="Plus" Height="15" Foreground="Green"/>
